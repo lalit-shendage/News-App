@@ -12,12 +12,17 @@ body{
     height: 100%;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    /* overflow: hidden; */
     background: #6c7d89;
     background-image: url('https://wallpaperaccess.com/full/187161.jpg');
     background-size: cover; 
     background-repeat: no-repeat;
    
+}
+.title{
+    background-color:rgba(0,0,0,0.5);
+    color: aliceblue;
+
 }
 
 /* .container-news{

@@ -8,7 +8,7 @@ const Home = () => {
   const navigate = useNavigate();
   const { user, logout } = UserAuth();
   const [favpage, setFavpage]=useState(false)
-  console.log(user)
+ 
   const handleLogout = async () => {
     try {
       await logout();
@@ -25,12 +25,26 @@ const Home = () => {
   }
 
   return (
-    <div>
-      
-    <News/>
-      <button onClick={handleLogout}>Logout</button>
-      
+   
+      <>
+     
+    <div className="container-fluid">
+       <div className="title  px-4 py-2">
+      <div className="row">
+        <div className="col-md-6">
+          <h1>News-App</h1>
+        </div>
+        <div className="col-md-6 text-end">
+          <button className="btn btn-danger" onClick={handleLogout}>
+            Logout
+          </button>
+        </div>
+      </div>
+      </div>
+      <News/>
     </div>
+    </>
+    
   );
 };
 
