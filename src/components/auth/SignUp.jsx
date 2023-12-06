@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import { UserAuth } from "../../context/authContext";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { UserAuth } from '../../context/authContext';
+import { Link, useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [country, setCountry] = useState(""); 
-  const [category, setCategory] = useState(""); 
-  const [error, setError] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [country, setCountry] = useState('');
+  const [category, setCategory] = useState('');
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const { createUser } = UserAuth();
@@ -21,8 +21,10 @@ const SignUp = () => {
         defaultCategory: category,
       };
 
-      await createUser(email, password, additionalInfo);
+      await createUser(email, password);
       console.log(email, password, country, category);
+      
+      navigate('/');
     } catch (error) {
       console.error(error);
     }
@@ -60,7 +62,7 @@ const SignUp = () => {
             <option value="">Select Country</option>
             <option value="in">India</option>
             <option value="us">USA</option>
-            <option value="gb">United Kindom</option>
+            <option value="gb">United Kingdom</option>
           </select>
         </div>
         <div className="form-group">
@@ -72,11 +74,11 @@ const SignUp = () => {
             <option value="">Select Category</option>
             <option value="general">General</option>
             <option value="business">Business</option>
-            <option value="entertainment">entertainment</option>
-            <option value="health">health</option>
-            <option value="science">science</option>
-            <option value="sports">sports</option>
-            <option value="technology">technology</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="health">Health</option>
+            <option value="science">Science</option>
+            <option value="sports">Sports</option>
+            <option value="technology">Technology</option>
           </select>
         </div>
         <button type="submit" className="btn">

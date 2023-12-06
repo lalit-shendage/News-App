@@ -2,6 +2,9 @@ import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
 import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
+import firebase from "firebase/compat/app";
+// Required for side-effects
+import "firebase/firestore";
 
 
 const firebaseConfig = {
@@ -14,9 +17,10 @@ const firebaseConfig = {
   measurementId: "G-93F6JHS9BL"
 };
 
+
+
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 const auth = getAuth(app);
 const firestore = getFirestore(app);
 
-export { auth, firestore }; 
+export { auth, firestore };

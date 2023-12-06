@@ -5,26 +5,28 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { UserAuth } from '../../context/authContext';
 
 const News = () => {
-  const { user} = UserAuth();
-  console.log(user)
-  const [articles, setarticles] = useState([]);
-  const [loading, setloading] = useState(true);
-  const [page, setpage] = useState(1);
-  const [totalResults, settotalResults] = useState(0);
-  
+  const { user } = UserAuth();
+  const [articles, setArticles] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState(1);
+  const [totalResults, setTotalResults] = useState(0);
 
   const updateNews = async () => {
     let url = `https://newsapi.org/v2/top-headlines?country=in&category=general&apiKey=485d64f79aff43569ce4c340ebcbb050&page=${page}&pageSize=10`;
-    setloading(true);
-    const data = await fetch(url);
-    console.log(data, "fetch")
-    let parsedData= await data.json()
-    console.log(parsedData,"parsed data")
-    await setarticles(parsedData.articles)
-    console.log(articles, "set articles ")
-    await settotalResults(parsedData.totalResults)
-    setloading(false)
+    setLoading(true);
+
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      setArticles(data.articles);
+      setTotalResults(data.totalResults);
+    } catch (error) {
+      console.error("Error fetching news:", error);
+    } finally {
+      setLoading(false);
+    }
   };
+
   useEffect(() => {
     updateNews();
   }, []);
@@ -32,46 +34,44 @@ const News = () => {
   const fetchMoreData = async () => {
     let url = `https://newsapi.org/v2/top-headlines?country=in&category=general&apiKey=485d64f79aff43569ce4c340ebcbb050&page=${page +
       1}&pageSize=10`;
-    setloading(true);
-    setpage(page + 1);
-    let data = await fetch(url);
-    let parsedData = await data.json();
-    await setarticles((prevArticles) =>
-      prevArticles.concat(parsedData.articles)
-    );
-    await settotalResults(parsedData.totalResults);
-    setloading(false);
+    setLoading(true);
+
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      setArticles((prevArticles) => prevArticles.concat(data.articles));
+      setTotalResults(data.totalResults);
+      setPage((prevPage) => prevPage + 1);
+    } catch (error) {
+      console.error("Error fetching more news:", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    console.log(articles),
-    (
-      <div className="main">
-        <h1>News Headlines</h1>
-        <InfiniteScroll
-          dataLength={articles.length || 0} 
-          next={fetchMoreData}
-          hasMore={articles.length !== totalResults}
-          loader={<Spinner />}
-        >
-          <div className="container">
-            {articles &&
-              articles.map((element) => {
-                return (
-                  <div key={element.url}>
-                    <NewsItem
-                      title={element.title}
-                      description={element.description}
-                      imgsrc={element.urlToImage}
-                      newsUrl={element.url}
-                    />
-                  </div>
-                );
-              })}
-          </div>
-        </InfiniteScroll>
-      </div>
-    )
+    <div>
+      <h1>News Headlines</h1>
+      <InfiniteScroll
+        dataLength={articles.length}
+        next={fetchMoreData}
+        hasMore={articles.length !== totalResults}
+        loader={<Spinner />}
+      >
+        <div className="container-news">
+          {articles.map((element) => (
+            <div key={element.url}>
+              <NewsItem
+                title={element.title}
+                description={element.description}
+                imgsrc={element.urlToImage}
+                newsUrl={element.url}
+              />
+            </div>
+          ))}
+        </div>
+      </InfiniteScroll>
+    </div>
   );
 };
 

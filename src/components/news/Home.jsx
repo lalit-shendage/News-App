@@ -26,7 +26,7 @@ const Home = () => {
 
   return (
     <div>
-      <h1>News App</h1>
+      
     <News/>
       <button onClick={handleLogout}>Logout</button>
       
