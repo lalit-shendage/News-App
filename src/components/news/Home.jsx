@@ -1,6 +1,7 @@
 import React,{ useState } from 'react';
 import { useNavigate} from 'react-router-dom';
 import { UserAuth } from '../../context/authContext';
+import News from './News';
 
 const Home = () => {
 
@@ -26,7 +27,7 @@ const Home = () => {
   return (
     <div>
       <h1>News App</h1>
-
+    <News/>
       <button onClick={handleLogout}>Logout</button>
       
     </div>

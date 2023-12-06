@@ -30,7 +30,7 @@ const News = () => {
   }, []);
 
   const fetchMoreData = async () => {
-    let url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=485d64f79aff43569ce4c340ebcbb050&page=${page +
+    let url = `https://newsapi.org/v2/top-headlines?country=in&category=general&apiKey=485d64f79aff43569ce4c340ebcbb050&page=${page +
       1}&pageSize=10`;
     setloading(true);
     setpage(page + 1);
@@ -42,8 +42,6 @@ const News = () => {
     await settotalResults(parsedData.totalResults);
     setloading(false);
   };
-
-
 
   return (
     console.log(articles),
