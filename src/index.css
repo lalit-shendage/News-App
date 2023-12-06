@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #6c7d89;
+    background-image: url('https://wallpaperaccess.com/full/187161.jpg');
+    background-size: cover; 
+    background-repeat: no-repeat;
+   
+}
+
+.container{
+    width: 430px;
+    height: 580px;
+    position: relative;
+}
+
+.container .form-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/jpeg;base64,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');
+    background-size: cover; 
+    background-repeat: no-repeat;
+    border-radius: 1rem;
+    box-shadow: 0 0 8px rgba(0,0,0,0.5);
+}
+
+.container .sign-up{
+    transform: translateX(0) rotate(10deg) scale(1);
+}
+
+.form-container .form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.form h2{
+    font-size: 35px;
+    text-align: center;
+    text-transform: capitalize;
+    color: black;
+}
+
+.form .form-group{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    width: 80%;
+    height: 50px;
+    margin: 15px 0;
+}
+
+.form-group input{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    border-radius: 5px;
+    padding: 0 20px;
+    font-size: 17px;
+    font-weight: 500;
+    outline: none;
+    border: 1px solid black;
+}
+
+.form-group label{
+    position: absolute;
+    pointer-events: none;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    background: white;
+    transition: all 0.3s ease;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 3px;
+    color: #999;
+    
+}
+
+.form-group input:focus ~ label,
+.form-group input:valid ~ label{
+    color: black;
+    top: 0%;
+    transform: translateY(-50%) scale(0.85);
+}
+
+.form .forgot-pass{
+    width: 80%;
+    margin-top: 10px;
+}
+
+.form .forgot-pass a{
+    color: black;
+    text-decoration: none;
+    font-size: 17px;
+    text-transform: capitalize;
+    transition: all 0.5s ease;
+}
+
+.form .forgot-pass a:hover{
+    color: #43AFFc;
+    text-decoration: underline;
+}
+
+.form .btn{
+    background: #15157c;
+    color: white;
+    text-transform: capitalize;
+    width: 80%;
+    padding: 10px;
+    margin-top: 20px;
+    font-size: 17px;
+    font-weight: 500;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 0 8px rgba(0,0,0,0.5);
+}
+
+.form .btn:active{
+    transform: scale(0.95);
+}
+
+.form .link{
+    text-align: center;
+    font-size: 17px;
+    color: black;
+    margin: 30px 0;
+}
+
+.form .link a{
+    text-transform: capitalize;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.form .link a label{
+    color: black;
+    transition: all 0.3s ease;
+}
+
+.form .link a label:hover{
+    color: #43AFFc;
+    cursor: pointer;
+}
+
+#slider-one:checked ~ .container .sign-in{
+    animation: signup-flip 1s ease-in-out forwards;
+}
+
+#slider-one:checked ~ .container .sign-up{
+    animation: rotatecard-sign-up .7s ease-in-out forwards;
+}
+
+#slider-two:checked ~ .container .sign-up{
+    animation: signin-flip 1s ease-in-out forwards;
+}
+
+#slider-two:checked ~ .container .sign-in{
+    animation: rotatecard-sign-in .7s ease-in-out forwards;
+}
+
+#slider-one,#slider-two{
+    display: none;
+}
+
+@keyframes signup-flip{
+    0%{
+        transform: translateX(0);
+        z-index: 1;
+    }
+
+    50%{
+        transform: translateX(600px) scale(1.1);
+    }
+
+    100%{
+        transform: translateX(0) rotate(7deg) scale(1);
+    }
+}
+
+@keyframes signin-flip{
+    0%{
+        transform: translateX(0);
+        z-index: 1;
+    }
+
+    50%{
+        transform: translateX(-600px) scale(1.1);
+    }
+
+    100%{
+        transform: translateX(0) rotate(7deg) scale(1);
+    }
+}
+
+@keyframes rotatecard-sign-up{
+    0%{
+        transform: rotate(7deg);
+    }
+
+    100%{
+        transform: rotate(0);
+        z-index: 1;
+    }
+}
+
+@keyframes rotatecard-sign-in{
+    0%{
+        transform: rotate(7deg);
+    }
+
+    100%{
+        transform: rotate(0);
+        z-index: 1;
+    }
+}
